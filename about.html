@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About & Setup | NETOPS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">⬡ NETOPS</div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="networking.html">Networking</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="page-header">
+      <div class="container">
+        <h1>About This Project</h1>
+        <p>Setup instructions and networking verification guide</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="overview-section">
+        <div class="container">
+          <h2>Project Overview</h2>
+
+          <div class="details-card">
+            <h3>Course Information</h3>
+            <ul>
+              <li><strong>Course:</strong> CSC 4220 - Computer Networks</li>
+              <li><strong>Instructor:</strong> Roya Hosseini</li>
+              <li><strong>Institution:</strong> Georgia State University</li>
+              <li><strong>Semester:</strong> Spring 2026</li>
+              <li><strong>Project:</strong> Build & Deploy a Public Website</li>
+            </ul>
+          </div>
+
+          <div class="details-card">
+            <h3>Project Goals</h3>
+            <ul>
+              <li>Build a publicly accessible website using HTML and CSS</li>
+              <li>Deploy using GitHub Pages (free hosting)</li>
+              <li>Demonstrate DNS domain resolution</li>
+              <li>Explain IPv4 and IPv6 addressing</li>
+              <li>Document HTTP/HTTPS protocol implementation</li>
+              <li>Verify HTTPS security with TLS/SSL certificates</li>
+              <li>Implement security headers</li>
+            </ul>
+          </div>
+
+          <div class="details-card">
+            <h3>Technology Stack</h3>
+            <ul>
+              <li><strong>Frontend:</strong> HTML5, CSS3</li>
+              <li><strong>Hosting:</strong> GitHub Pages</li>
+              <li><strong>Protocol:</strong> HTTPS with TLS 1.3</li>
+              <li><strong>Certificate:</strong> Let's Encrypt</li>
+              <li><strong>CDN:</strong> GitHub Pages Edge Network</li>
+              <li><strong>Version Control:</strong> Git + GitHub</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="infrastructure-section">
+        <div class="container">
+          <h2>Deployment Guide</h2>
+
+          <div class="details-card">
+            <h3>Files Uploaded to GitHub</h3>
+            <ul>
+              <li>index.html - Home page</li>
+              <li>networking.html - Networking concepts</li>
+              <li>about.html - About & setup</li>
+              <li>styles.css - All styling</li>
+            </ul>
+          </div>
+
+          <div class="details-card">
+            <h3>Verify Your Website is Live</h3>
+            <p>
+              <strong>Website URL:</strong>
+              https://udit-ch.github.io/network-project1
+            </p>
+            <p>
+              <strong>GitHub Repository:</strong>
+              https://github.com/udit-ch/network-project1
+            </p>
+            <p>Your website should load with:</p>
+            <ul>
+              <li>✓ Red and black color scheme</li>
+              <li>✓ NETOPS branding</li>
+              <li>✓ Three navigation pages</li>
+              <li>✓ Professional styling</li>
+              <li>✓ Green lock 🔒 (HTTPS enabled)</li>
+            </ul>
+          </div>
+
+          <div class="details-card">
+            <h3>Networking Verification</h3>
+            <p>To verify DNS resolution, run in Terminal:</p>
+            <pre><code>nslookup udit-ch.github.io
+
+# You should see:
+# Name: udit-ch.github.io
+# Address: 185.199.108.153 (and other GitHub IPs)</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="verification-section">
+        <div class="container">
+          <h2>What You've Accomplished</h2>
+
+          <div style="margin-top: 2rem">
+            <ul style="list-style: none; margin-left: 0">
+              <li style="margin-bottom: 0.75rem">✓ Created a GitHub account</li>
+              <li style="margin-bottom: 0.75rem">
+                ✓ Created a GitHub repository
+              </li>
+              <li style="margin-bottom: 0.75rem">✓ Uploaded website files</li>
+              <li style="margin-bottom: 0.75rem">✓ Deployed a live website</li>
+              <li style="margin-bottom: 0.75rem">
+                ✓ Got HTTPS enabled automatically
+              </li>
+              <li style="margin-bottom: 0.75rem">
+                ✓ Demonstrated networking concepts
+              </li>
+              <li style="margin-bottom: 0.75rem">✓ Became a web developer!</li>
+            </ul>
+          </div>
+
+          <blockquote class="verification-quote" style="margin-top: 2rem">
+            <p>
+              <strong>Congratulations!</strong> You've successfully deployed a
+              real website on the internet using GitHub Pages and demonstrated
+              fundamental networking concepts.
+            </p>
+          </blockquote>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h3>⬡ NETOPS</h3>
+            <p>CSC 4220 · Georgia State University · Spring 2026</p>
+          </div>
+          <div class="footer-credit">
+            <p>Solo Project</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
