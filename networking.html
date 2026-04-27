@@ -1,215 +1,175 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- DOMPurify for XSS Protection -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
-    <!-- Security Headers via Meta -->
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="DENY">
-<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" 
-      content="default-src 'self'; 
-               script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; 
-               style-src 'self' 'unsafe-inline'; 
-               img-src 'self' data: https://www.google-analytics.com;
-               connect-src 'self' https://www.google-analytics.com;">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Networking Concepts | NET FOUNDATIONS</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="container">
-        <div class="logo">⬡ NET FOUNDATIONS</div>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="networking.html" class="active">Networking</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
+<head>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8FEGBR0FCF');
+  </script>
+
+  <!-- DOMPurify -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
+
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self';
+             script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com;
+             style-src 'self' 'unsafe-inline';
+             img-src 'self' data: https://www.google-analytics.com https://images.unsplash.com;
+             connect-src 'self' https://www.google-analytics.com;">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Networking Concepts | NET FOUNDATIONS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">⬡ NET FOUNDATIONS</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="networking.html" class="active">Networking</a></li>
+        <li><a href="security.html">Security</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <h1>Networking Concepts</h1>
+      <p>Deep dive into DNS, IP addressing, HTTPS, TCP/IP, and how they all power this live website</p>
+    </div>
+  </header>
+
+  <section class="overview-section">
+    <div class="container">
+      <h2>Core Networking Concepts</h2>
+      <div class="concepts-grid">
+
+        <div class="concept-item">
+          <div class="concept-number">01</div>
+          <h3>DNS Resolution</h3>
+          <img
+            src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80"
+            alt="DNS server infrastructure - network rack with cables"
+            loading="lazy"
+            width="600"
+            height="300"
+            class="concept-img"
+          >
+          <p>The Domain Name System translates human-readable domain names into IP addresses. When you visit this site, your browser queries a DNS resolver which contacts the root nameserver → TLD nameserver → authoritative nameserver and finally gets back <code>185.199.108.153</code>.</p>
+          <p class="concept-tags">nslookup · dig · A records · TTL</p>
+        </div>
+
+        <div class="concept-item">
+          <div class="concept-number">02</div>
+          <h3>IPv4 Addressing</h3>
+          <p>IPv4 addresses are 32-bit identifiers written in dotted decimal. GitHub Pages uses four load-balanced anycast addresses, so your request goes to the nearest edge server automatically.</p>
+          <div class="code-block">
+            <code>185.199.108.153<br>185.199.109.153<br>185.199.110.153<br>185.199.111.153</code>
+          </div>
+          <p class="concept-tags">32-bit · Dotted decimal · Anycast · Load balancing</p>
+        </div>
+
+        <div class="concept-item">
+          <div class="concept-number">03</div>
+          <h3>IPv6 Addressing</h3>
+          <p>IPv6 addresses are 128-bit identifiers providing vastly more address space than IPv4. This site supports dual-stack (both IPv4 and IPv6), future-proofing it for modern networks.</p>
+          <div class="code-block">
+            <code>2606:50c0:8000::153<br>2606:50c0:8001::153<br>2606:50c0:8002::153<br>2606:50c0:8003::153</code>
+          </div>
+          <p class="concept-tags">128-bit · Hexadecimal · Dual-stack · AAAA records</p>
+        </div>
+
+        <div class="concept-item">
+          <div class="concept-number">04</div>
+          <h3>HTTPS Protocol</h3>
+          <img
+            src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&q=80"
+            alt="HTTPS padlock security - encrypted connection visualization"
+            loading="lazy"
+            width="600"
+            height="300"
+            class="concept-img"
+          >
+          <p>HTTPS is HTTP secured with TLS/SSL encryption. All communication to this site is encrypted end-to-end. HTTP requests are permanently redirected (308) to HTTPS. Let's Encrypt provides the free certificate.</p>
+          <p class="concept-tags">TLS 1.3 · Let's Encrypt · 308 Redirect · HSTS</p>
+        </div>
+
+        <div class="concept-item">
+          <div class="concept-number">05</div>
+          <h3>TCP/IP Model</h3>
+          <p>The five-layer TCP/IP model describes how internet communication works from physical cables all the way up to your browser rendering this page.</p>
+          <table class="data-table">
+            <thead>
+              <tr><th>Layer</th><th>Name</th><th>Protocols</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>5</td><td>Application</td><td>HTTP/HTTPS, DNS, TLS</td></tr>
+              <tr><td>4</td><td>Transport</td><td>TCP, UDP</td></tr>
+              <tr><td>3</td><td>Internet</td><td>IPv4, IPv6, ICMP</td></tr>
+              <tr><td>2</td><td>Link</td><td>Ethernet, WiFi</td></tr>
+              <tr><td>1</td><td>Physical</td><td>Cables, Fiber, Wireless</td></tr>
+            </tbody>
+          </table>
+          <p class="concept-tags">Five layers · Protocol stack · Encapsulation</p>
+        </div>
+
+        <div class="concept-item">
+          <div class="concept-number">06</div>
+          <h3>Security Headers</h3>
+          <p>HTTP response headers enforce security policies in browsers. This site implements HSTS, Content Security Policy, X-Frame-Options, and X-Content-Type-Options to protect against a range of attacks.</p>
+          <div class="code-block">
+            <code>
+              Strict-Transport-Security: max-age=31536000<br>
+              X-Frame-Options: DENY<br>
+              X-Content-Type-Options: nosniff<br>
+              Content-Security-Policy: default-src 'self'
+            </code>
+          </div>
+          <p class="concept-tags">HSTS · CSP · XSS protection · Clickjacking</p>
+        </div>
+
       </div>
-    </nav>
+    </div>
+  </section>
 
-    <header class="page-header">
-      <div class="container">
-        <h1>Networking Concepts</h1>
-        <p>Deep dive into DNS, IP addressing, HTTPS, and TCP/IP protocols</p>
+  <section class="verification-section">
+    <div class="container">
+      <blockquote class="verification-quote">
+        <p>This website is hosted publicly on GitHub Pages. DNS resolves the domain to multiple load-balanced IP addresses. All communication is secured over HTTPS using TLS 1.3 within the TCP/IP protocol stack.</p>
+        <footer>— Technical Verification Statement · CSC 4220 · Spring 2026</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>⬡ NET FOUNDATIONS</h3>
+          <p>CSC 4220 · Georgia State University · Spring 2026</p>
+        </div>
+        <div class="footer-credit"><p>Solo Project</p></div>
       </div>
-    </header>
+    </div>
+  </footer>
 
-    <main>
-      <section class="overview-section">
-        <div class="container">
-          <h2>Core Networking Concepts</h2>
+  <script>
+    document.querySelectorAll('[data-user-content]').forEach(el => {
+      el.innerHTML = DOMPurify.sanitize(el.innerHTML);
+    });
+  </script>
 
-          <div class="concepts-grid">
-            <div class="concept-item">
-              <div class="concept-number">01</div>
-              <h3>DNS Resolution</h3>
-              <p>
-                The Domain Name System translates human-readable domain names
-                into IP addresses that computers use to locate servers on the
-                internet.
-              </p>
-              <p class="concept-tags">nslookup · dig · A records</p>
-            </div>
-
-            <div class="concept-item">
-              <div class="concept-number">02</div>
-              <h3>IPv4 Addressing</h3>
-              <p>
-                IPv4 addresses are 32-bit identifiers that uniquely identify
-                devices on networks. GitHub Pages uses load-balanced anycast
-                addresses.
-              </p>
-              <p class="concept-tags">32-bit · Dotted decimal · Anycast</p>
-            </div>
-
-            <div class="concept-item">
-              <div class="concept-number">03</div>
-              <h3>IPv6 Addressing</h3>
-              <p>
-                IPv6 addresses are 128-bit identifiers that provide vastly more
-                address space. Modern infrastructure uses dual-stack (both IPv4
-                and IPv6).
-              </p>
-              <p class="concept-tags">128-bit · Hexadecimal · Dual-stack</p>
-            </div>
-
-            <div class="concept-item">
-              <div class="concept-number">04</div>
-              <h3>HTTPS Protocol</h3>
-              <p>
-                HTTPS is HTTP secured with TLS/SSL encryption. All communication
-                is encrypted end-to-end. Let's Encrypt provides free
-                certificates.
-              </p>
-              <p class="concept-tags">TLS 1.3 · Encryption · Let's Encrypt</p>
-            </div>
-
-            <div class="concept-item">
-              <div class="concept-number">05</div>
-              <h3>TCP/IP Model</h3>
-              <p>
-                The five-layer TCP/IP model describes how internet communication
-                works: Application → Transport → Internet → Link → Physical.
-              </p>
-              <p class="concept-tags">Five layers · Protocol stack</p>
-            </div>
-
-            <div class="concept-item">
-              <div class="concept-number">06</div>
-              <h3>Security Headers</h3>
-              <p>
-                HTTP response headers enforce security policies in browsers.
-                HSTS, X-Frame-Options, and CSP protect against web
-                vulnerabilities.
-              </p>
-              <p class="concept-tags">HSTS · CSP · XSS protection</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="infrastructure-section">
-        <div class="container">
-          <h2>How This Website Works</h2>
-
-          <div style="margin-top: 2rem">
-            <h3 style="color: var(--primary-red); margin-top: 0">
-              DNS Resolution Process
-            </h3>
-            <p>When you visit this website:</p>
-            <ol>
-              <li>Browser queries a DNS resolver</li>
-              <li>Resolver contacts root nameserver</li>
-              <li>Root nameserver directs to TLD nameserver</li>
-              <li>TLD nameserver directs to authoritative nameserver</li>
-              <li>Authoritative nameserver returns IP address</li>
-              <li>Browser connects to the IP address</li>
-            </ol>
-
-            <h3 style="color: var(--primary-red)">GitHub Pages IP Addresses</h3>
-            <p>This website resolves to GitHub's load-balanced servers:</p>
-            <pre><code>IPv4: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
-IPv6: 2606:50c0:8000::153, 2606:50c0:8001::153, 2606:50c0:8002::153, 2606:50c0:8003::153</code></pre>
-
-            <h3 style="color: var(--primary-red)">HTTPS & Security</h3>
-            <p><strong>Protocol:</strong> HTTPS with TLS 1.3</p>
-            <p><strong>Certificate:</strong> Let's Encrypt (free)</p>
-            <p>
-              <strong>Security Headers:</strong> X-Content-Type-Options,
-              X-Frame-Options, HSTS
-            </p>
-
-            <h3 style="color: var(--primary-red)">TCP/IP Model</h3>
-            <table class="protocol-table">
-              <thead>
-                <tr>
-                  <th>Layer</th>
-                  <th>Name</th>
-                  <th>Protocols</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>5</td>
-                  <td>Application</td>
-                  <td>HTTP/HTTPS, DNS, TLS</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>Transport</td>
-                  <td>TCP, UDP</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Internet</td>
-                  <td>IPv4, IPv6, ICMP</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Link</td>
-                  <td>Ethernet, WiFi</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Physical</td>
-                  <td>Cables, Fiber, Wireless</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section class="verification-section">
-        <div class="container">
-          <blockquote class="verification-quote">
-            <p>
-              This website is hosted publicly on GitHub Pages. DNS resolves the
-              domain to multiple load-balanced IP addresses, and all
-              communication occurs securely over HTTPS using TLS encryption
-              within the TCP/IP protocol stack.
-            </p>
-            <footer>— Technical Verification Statement</footer>
-          </blockquote>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-brand">
-            <h3>⬡ NET FOUNDATIONS</h3>
-            <p>CSC 4220 · Georgia State University · Spring 2026</p>
-          </div>
-          <div class="footer-credit">
-            <p>Solo Project</p>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </body>
+</body>
 </html>
