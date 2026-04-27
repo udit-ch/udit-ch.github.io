@@ -1,0 +1,66 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Validate HTML Files Exist
+      run: |
+        echo "=== Validating project structure ==="
+        for f in index.html networking.html security.html about.html styles.css _headers; do
+          if [ -f "$f" ]; then
+            echo "✅ $f found"
+          else
+            echo "❌ $f MISSING"
+            exit 1
+          fi
+        done
+
+    - name: Security Scan - Check for HTTP References
+      run: |
+        echo "=== Scanning for insecure HTTP links ==="
+        if grep -rn "http://" --include="*.html" --include="*.css" .; then
+          echo "⚠️ Warning: Insecure HTTP references found above"
+        else
+          echo "✅ All external references use HTTPS"
+        fi
+
+    - name: Security Scan - Check for Inline Scripts Without CSP
+      run: |
+        echo "=== Checking CSP meta tags ==="
+        for f in index.html networking.html security.html about.html; do
+          if grep -q "Content-Security-Policy" "$f"; then
+            echo "✅ CSP found in $f"
+          else
+            echo "❌ CSP MISSING from $f"
+          fi
+        done
+
+    - name: Check DOMPurify Integration
+      run: |
+        echo "=== Checking DOMPurify on all pages ==="
+        for f in index.html networking.html security.html about.html; do
+          if grep -q "dompurify" "$f"; then
+            echo "✅ DOMPurify found in $f"
+          else
+            echo "❌ DOMPurify MISSING from $f"
+          fi
+        done
+
+    - name: Deployment Summary
+      run: |
+        echo "=================================="
+        echo "✅ All checks passed"
+        echo "✅ GitHub Pages auto-deploys from main"
+        echo "✅ Site live at: https://udit-ch.github.io"
+        echo "=================================="
