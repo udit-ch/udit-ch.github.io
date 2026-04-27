@@ -18,6 +18,7 @@
     <title>About & Setup | NET FOUNDATIONS</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
+  
   <body>
     <nav class="navbar">
       <div class="container">
@@ -172,5 +173,18 @@
         </div>
       </div>
     </footer>
+    <script>
+  // XSS Protection: Sanitize any dynamic content before rendering
+  // This demonstrates DOMPurify integration for XSS prevention
+  document.querySelectorAll('[data-user-content]').forEach(el => {
+    el.innerHTML = DOMPurify.sanitize(el.innerHTML);
+  });
+
+  // Example: sanitize any URL hash parameters
+  if (window.location.hash) {
+    const cleaned = DOMPurify.sanitize(decodeURIComponent(window.location.hash));
+    console.log('Sanitized input:', cleaned);
+  }
+</script>
   </body>
 </html>
