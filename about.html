@@ -1,190 +1,135 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- DOMPurify for XSS Protection -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
-    <!-- Security Headers via Meta -->
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="DENY">
-<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" 
-      content="default-src 'self'; 
-               script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; 
-               style-src 'self' 'unsafe-inline'; 
-               img-src 'self' data: https://www.google-analytics.com;
-               connect-src 'self' https://www.google-analytics.com;">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About & Setup | NET FOUNDATIONS</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  
-  <body>
-    <nav class="navbar">
-      <div class="container">
-        <div class="logo">⬡ NET FOUNDATIONS</div>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="networking.html">Networking</a></li>
-          <li><a href="about.html" class="active">About</a></li>
-        </ul>
-      </div>
-    </nav>
+<head>
 
-    <header class="page-header">
-      <div class="container">
-        <h1>About This Project</h1>
-        <p>Setup instructions and networking verification guide</p>
-      </div>
-    </header>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FEGBR0FCF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8FEGBR0FCF');
+  </script>
 
-    <main>
-      <section class="overview-section">
-        <div class="container">
-          <h2>Project Overview</h2>
+  <!-- DOMPurify -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
 
-          <div class="details-card">
-            <h3>Course Information</h3>
-            <ul>
-              <li><strong>Course:</strong> CSC 4220 - Computer Networks</li>
-              <li><strong>Instructor:</strong> Roya Hosseini</li>
-              <li><strong>Institution:</strong> Georgia State University</li>
-              <li><strong>Semester:</strong> Spring 2026</li>
-              <li><strong>Project:</strong> Build & Deploy a Public Website</li>
-            </ul>
-          </div>
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self';
+             script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com;
+             style-src 'self' 'unsafe-inline';
+             img-src 'self' data: https://www.google-analytics.com https://images.unsplash.com;
+             connect-src 'self' https://www.google-analytics.com;">
 
-          <div class="details-card">
-            <h3>Project Goals</h3>
-            <ul>
-              <li>Build a publicly accessible website using HTML and CSS</li>
-              <li>Deploy using GitHub Pages (free hosting)</li>
-              <li>Demonstrate DNS domain resolution</li>
-              <li>Explain IPv4 and IPv6 addressing</li>
-              <li>Document HTTP/HTTPS protocol implementation</li>
-              <li>Verify HTTPS security with TLS/SSL certificates</li>
-              <li>Implement security headers</li>
-            </ul>
-          </div>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | NET FOUNDATIONS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-          <div class="details-card">
-            <h3>Technology Stack</h3>
-            <ul>
-              <li><strong>Frontend:</strong> HTML5, CSS3</li>
-              <li><strong>Hosting:</strong> GitHub Pages</li>
-              <li><strong>Protocol:</strong> HTTPS with TLS 1.3</li>
-              <li><strong>Certificate:</strong> Let's Encrypt</li>
-              <li><strong>CDN:</strong> GitHub Pages Edge Network</li>
-              <li><strong>Version Control:</strong> Git + GitHub</li>
-            </ul>
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">⬡ NET FOUNDATIONS</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="networking.html">Networking</a></li>
+        <li><a href="security.html">Security</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <h1>About This Project</h1>
+      <p>CSC 4220 · Computer Networks · Georgia State University · Spring 2026</p>
+    </div>
+  </header>
+
+  <section class="overview-section">
+    <div class="container">
+
+      <div class="concepts-grid">
+        <div class="concept-item">
+          <h3>Project Goal</h3>
+          <p>This website was built as a live demonstration of real-world networking concepts for CSC 4220 at Georgia State University. Every feature — from HTTPS encryption to lazy-loaded images — directly maps to a networking or security concept covered in the course.</p>
+          <p>The site is publicly deployed at <code>udit-ch.github.io</code> and fully verifiable with browser developer tools and command-line utilities like <code>nslookup</code>, <code>dig</code>, and <code>curl</code>.</p>
+        </div>
+
+        <div class="concept-item">
+          <h3>What Was Implemented</h3>
+          <table class="data-table">
+            <thead>
+              <tr><th>Feature</th><th>Category</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>HTTPS / TLS 1.3</td><td>Security</td><td>✅ Active</td></tr>
+              <tr><td>Content Security Policy</td><td>Security</td><td>✅ Active</td></tr>
+              <tr><td>DOMPurify XSS Protection</td><td>Security</td><td>✅ Active</td></tr>
+              <tr><td>Security Headers</td><td>Security</td><td>✅ Active</td></tr>
+              <tr><td>CDN (GitHub Pages Edge)</td><td>Performance</td><td>✅ Active</td></tr>
+              <tr><td>Lazy Loading Images</td><td>Performance</td><td>✅ Active</td></tr>
+              <tr><td>Minified CSS</td><td>Performance</td><td>✅ Active</td></tr>
+              <tr><td>Google Analytics 4</td><td>Monitoring</td><td>✅ Active</td></tr>
+              <tr><td>GitHub Pages Hosting</td><td>Deployment</td><td>✅ Active</td></tr>
+              <tr><td>GitHub Actions CI/CD</td><td>Deployment</td><td>✅ Active</td></tr>
+              <tr><td>IPv4 + IPv6 Dual Stack</td><td>Networking</td><td>✅ Active</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="concept-item">
+          <h3>How to Verify</h3>
+          <p>You can verify all networking and security features using these commands:</p>
+          <div class="code-block">
+            <code>
+# DNS lookup<br>
+nslookup udit-ch.github.io<br><br>
+# IPv4 and IPv6 records<br>
+dig udit-ch.github.io A<br>
+dig udit-ch.github.io AAAA<br><br>
+# Check HTTPS headers<br>
+curl -I https://udit-ch.github.io<br><br>
+# Verify TLS certificate<br>
+openssl s_client -connect udit-ch.github.io:443
+            </code>
           </div>
         </div>
-      </section>
 
-      <section class="infrastructure-section">
-        <div class="container">
-          <h2>Deployment Guide</h2>
-
-          <div class="details-card">
-            <h3>Files Uploaded to GitHub</h3>
-            <ul>
-              <li>index.html - Home page</li>
-              <li>networking.html - Networking concepts</li>
-              <li>about.html - About & setup</li>
-              <li>styles.css - All styling</li>
-            </ul>
-          </div>
-
-          <div class="details-card">
-            <h3>Verify Your Website is Live</h3>
-            <p>
-              <strong>Website URL:</strong>
-              https://udit-ch.github.io/network-project1
-            </p>
-            <p>
-              <strong>GitHub Repository:</strong>
-              https://github.com/udit-ch/network-project1
-            </p>
-            <p>Your website should load with:</p>
-            <ul>
-              <li>✓ Red and black color scheme</li>
-              <li>✓ NET FOUNDATIONS branding</li>
-              <li>✓ Three navigation pages</li>
-              <li>✓ Professional styling</li>
-              <li>✓ Green lock 🔒 (HTTPS enabled)</li>
-            </ul>
-          </div>
-
-          <div class="details-card">
-            <h3>Networking Verification</h3>
-            <p>To verify DNS resolution, run in Terminal:</p>
-            <pre><code>nslookup udit-ch.github.io
-
-# You should see:
-# Name: udit-ch.github.io
-# Address: 185.199.108.153 (and other GitHub IPs)</code></pre>
-          </div>
-        </div>
-      </section>
-
-      <section class="verification-section">
-        <div class="container">
-          <h2>What You've Accomplished</h2>
-
-          <div style="margin-top: 2rem">
-            <ul style="list-style: none; margin-left: 0">
-              <li style="margin-bottom: 0.75rem">✓ Created a GitHub account</li>
-              <li style="margin-bottom: 0.75rem">
-                ✓ Created a GitHub repository
-              </li>
-              <li style="margin-bottom: 0.75rem">✓ Uploaded website files</li>
-              <li style="margin-bottom: 0.75rem">✓ Deployed a live website</li>
-              <li style="margin-bottom: 0.75rem">
-                ✓ Got HTTPS enabled automatically
-              </li>
-              <li style="margin-bottom: 0.75rem">
-                ✓ Demonstrated networking concepts
-              </li>
-              <li style="margin-bottom: 0.75rem">✓ Became a web developer!</li>
-            </ul>
-          </div>
-
-          <blockquote class="verification-quote" style="margin-top: 2rem">
-            <p>
-              <strong>Congratulations!</strong> You've successfully deployed a
-              real website on the internet using GitHub Pages and demonstrated
-              fundamental networking concepts.
-            </p>
-          </blockquote>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-brand">
-            <h3>⬡ NET FOUNDATIONS</h3>
-            <p>CSC 4220 · Georgia State University · Spring 2026</p>
-          </div>
-          <div class="footer-credit">
-            <p>Solo Project</p>
-          </div>
+        <div class="concept-item">
+          <h3>About the Developer</h3>
+          <p><strong>Udit Chandrashekar</strong><br>
+          Computer Science · Georgia State University<br>
+          CSC 4220 — Computer Networks · Spring 2026</p>
+          <p><a href="https://github.com/udit-ch/udit-ch.github.io" target="_blank" class="btn btn-secondary" style="display:inline-block;margin-top:1rem;">View Source on GitHub →</a></p>
         </div>
       </div>
-    </footer>
-    <script>
-  // XSS Protection: Sanitize any dynamic content before rendering
-  // This demonstrates DOMPurify integration for XSS prevention
-  document.querySelectorAll('[data-user-content]').forEach(el => {
-    el.innerHTML = DOMPurify.sanitize(el.innerHTML);
-  });
 
-  // Example: sanitize any URL hash parameters
-  if (window.location.hash) {
-    const cleaned = DOMPurify.sanitize(decodeURIComponent(window.location.hash));
-    console.log('Sanitized input:', cleaned);
-  }
-</script>
-  </body>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>⬡ NET FOUNDATIONS</h3>
+          <p>CSC 4220 · Georgia State University · Spring 2026</p>
+        </div>
+        <div class="footer-credit"><p>Udit Chandrashekar</p></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('[data-user-content]').forEach(el => {
+      el.innerHTML = DOMPurify.sanitize(el.innerHTML);
+    });
+  </script>
+
+</body>
 </html>
