@@ -10,15 +10,15 @@
   --bg-2:      #0d1117;
   --bg-3:      #111820;
   --border:    rgba(255,255,255,0.07);
-  --border-hi: rgba(0,255,136,0.3);
+  --border-hi: rgba(255,68,68,0.3);
 
   --text:      #e8edf2;
   --text-dim:  #6b7a8d;
   --text-muted:#3d4a58;
 
-  --green:     #00ff88;
-  --green-dim: rgba(0,255,136,0.12);
-  --green-glow:rgba(0,255,136,0.25);
+  --green:     #ff4444;
+  --green-dim: rgba(255,68,68,0.12);
+  --green-glow:rgba(255,68,68,0.25);
   --blue:      #4d9fff;
   --blue-dim:  rgba(77,159,255,0.1);
   --amber:     #ffb347;
